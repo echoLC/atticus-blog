@@ -45,7 +45,7 @@ main {
 }
 
 a {
-  color: var(--theme-accent);
+  color: #474f5e;
 }
 
 a:hover {
@@ -89,4 +89,27 @@ body {
   padding: 0;
   line-height: inherit;
   margin: 0;
+}
+
+.triangle-down {
+  position: relative;
+  top: -5px;
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-right: 0.2em solid #b8becc;
+  border-top: 0.2em solid #b8becc;
+  transform: rotate(135deg);
+}
+.triangle-up {
+  position: relative;
+  top: -5px;
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-right: 0.2em solid #b8becc;
+  border-top: 0.2em solid #b8becc;
+  transform: rotate(-45deg);
 }

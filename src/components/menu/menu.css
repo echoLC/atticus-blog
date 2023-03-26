@@ -1,3 +1,8 @@
+:root {
+  --theme-accent: #006ce9;
+  --theme-text: #181818;
+}
+
 .menu {
   background: #fff;
   padding: 20px 10px;
@@ -12,4 +17,28 @@
 .menu ul {
   padding-left: 20px;
   margin: 5px 0 25px 0;
+}
+
+.menu-list li {
+  list-style-type: none;
+}
+
+.menu-list li a {
+  text-decoration: none;
+}
+
+.menu-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.menu-title-text {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.is-active {
+  color: var(--theme-accent);
 }

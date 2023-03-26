@@ -3,6 +3,7 @@
 ## Webpack
 
 - [Loader](webpack/loader/index.md)
+- [Plugin](webpack/plugin/index.md)
 
 ## JavaScript
 
