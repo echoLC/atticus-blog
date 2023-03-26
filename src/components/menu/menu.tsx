@@ -1,12 +1,12 @@
-import { component$, useStyles$ } from '@builder.io/qwik';
-import { useContent, Link, useLocation } from '@builder.io/qwik-city';
-import styles from './menu.css?inline';
+import { component$, useStyles$ } from '@builder.io/qwik'
+import { useContent, Link, useLocation } from '@builder.io/qwik-city'
+import styles from './menu.css?inline'
 
 export default component$(() => {
-  useStyles$(styles);
+  useStyles$(styles)
 
-  const { menu } = useContent();
-  const loc = useLocation();
+  const { menu } = useContent()
+  const loc = useLocation()
 
   return (
     <aside class="menu">
@@ -16,11 +16,11 @@ export default component$(() => {
               <h5>{item.text}</h5>
               <ul>
                 {item.items?.map((item) => (
-                  <li>
+                  <li key={item.href}>
                     <Link
                       href={item.href}
                       class={{
-                        'is-active': loc.url.pathname === item.href,
+                        'is-active': loc.url.pathname === item.href
                       }}
                     >
                       {item.text}
@@ -32,5 +32,5 @@ export default component$(() => {
           ))
         : null}
     </aside>
-  );
-});
+  )
+})

@@ -1,15 +1,16 @@
-import { useContent, useLocation } from '@builder.io/qwik-city';
-import { component$, useStyles$ } from '@builder.io/qwik';
-import styles from './on-this-page.css?inline';
+import { useContent, useLocation } from '@builder.io/qwik-city'
+import { component$, useStyles$ } from '@builder.io/qwik'
+import styles from './on-this-page.css?inline'
 
 export default component$(() => {
-  useStyles$(styles);
+  useStyles$(styles)
 
-  const { headings } = useContent();
-  const contentHeadings = headings?.filter((h) => h.level === 2 || h.level === 3) || [];
+  const { headings } = useContent()
+  const contentHeadings =
+    headings?.filter((h) => h.level === 2 || h.level === 3) || []
 
-  const { url } = useLocation();
-  const editUrl = `#update-your-edit-url-for-${url.pathname}`;
+  const { url } = useLocation()
+  const editUrl = `#update-your-edit-url-for-${url.pathname}`
 
   return (
     <aside class="on-this-page">
@@ -18,12 +19,12 @@ export default component$(() => {
           <h6>On This Page</h6>
           <ul>
             {contentHeadings.map((h) => (
-              <li>
+              <li key={h.id}>
                 <a
                   href={`#${h.id}`}
                   class={{
                     block: true,
-                    indent: h.level > 2,
+                    indent: h.level > 2
                   }}
                 >
                   {h.text}
@@ -58,5 +59,5 @@ export default component$(() => {
         </li>
       </ul>
     </aside>
-  );
-});
+  )
+})

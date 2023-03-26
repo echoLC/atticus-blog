@@ -1,62 +1,68 @@
-import { component$, useStyles$ } from '@builder.io/qwik';
-import { useContent, useLocation, ContentMenu } from '@builder.io/qwik-city';
-import styles from './breadcrumbs.css?inline';
+import { component$, useStyles$ } from '@builder.io/qwik'
+import type { ContentMenu } from '@builder.io/qwik-city'
+import { useContent, useLocation } from '@builder.io/qwik-city'
+import styles from './breadcrumbs.css?inline'
 
 export const Breadcrumbs = component$(() => {
-  useStyles$(styles);
+  useStyles$(styles)
 
-  const { menu } = useContent();
-  const loc = useLocation();
+  const { menu } = useContent()
+  const loc = useLocation()
 
-  const breadcrumbs = createBreadcrumbs(menu, loc.url.pathname);
+  const breadcrumbs = createBreadcrumbs(menu, loc.url.pathname)
   if (breadcrumbs.length === 0) {
-    return null;
+    return null
   }
 
   return (
     <nav class="breadcrumbs">
       {breadcrumbs.map((b) => (
-        <span>{b.href ? <a href={b.href}>{b.text}</a> : b.text}</span>
+        <span key={b.href}>
+          {b.href ? <a href={b.href}>{b.text}</a> : b.text}
+        </span>
       ))}
     </nav>
-  );
-});
+  )
+})
 
-export function createBreadcrumbs(menu: ContentMenu | undefined, pathname: string) {
+export function createBreadcrumbs(
+  menu: ContentMenu | undefined,
+  pathname: string
+) {
   if (menu?.items) {
     for (const indexA of menu.items) {
       const breadcrumbA: ContentBreadcrumb = {
-        text: indexA.text,
-      };
+        text: indexA.text
+      }
       if (typeof indexA.href === 'string') {
-        breadcrumbA.href = indexA.href;
+        breadcrumbA.href = indexA.href
       }
       if (indexA.href === pathname) {
-        return [breadcrumbA];
+        return [breadcrumbA]
       }
 
       if (indexA.items) {
         for (const indexB of indexA.items) {
           const breadcrumbB: ContentBreadcrumb = {
-            text: indexB.text,
-          };
+            text: indexB.text
+          }
           if (typeof indexB.href === 'string') {
-            breadcrumbB.href = indexB.href;
+            breadcrumbB.href = indexB.href
           }
           if (indexB.href === pathname) {
-            return [breadcrumbA, breadcrumbB];
+            return [breadcrumbA, breadcrumbB]
           }
 
           if (indexB.items) {
             for (const indexC of indexB.items) {
               const breadcrumbC: ContentBreadcrumb = {
-                text: indexC.text,
-              };
+                text: indexC.text
+              }
               if (typeof indexC.href === 'string') {
-                breadcrumbC.href = indexC.href;
+                breadcrumbC.href = indexC.href
               }
               if (indexC.href === pathname) {
-                return [breadcrumbA, breadcrumbB, breadcrumbC];
+                return [breadcrumbA, breadcrumbB, breadcrumbC]
               }
             }
           }
@@ -65,10 +71,10 @@ export function createBreadcrumbs(menu: ContentMenu | undefined, pathname: strin
     }
   }
 
-  return [];
+  return []
 }
 
 interface ContentBreadcrumb {
-  text: string;
-  href?: string;
+  text: string
+  href?: string
 }
