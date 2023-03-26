@@ -16,6 +16,12 @@ header a.logo {
   display: block;
 }
 
+header a.logo img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
 header a {
   text-decoration: none;
 }

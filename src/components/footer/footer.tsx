@@ -1,36 +1,33 @@
-import { component$, useStyles$ } from '@builder.io/qwik';
-import styles from './footer.css?inline';
+import { component$, useStyles$ } from '@builder.io/qwik'
+import styles from './footer.css?inline'
 
 export default component$(() => {
-  useStyles$(styles);
+  useStyles$(styles)
 
   return (
     <footer>
       <ul>
         <li>
-          <a href="/docs">Docs</a>
+          <a href="/blogs">Blogs</a>
         </li>
         <li>
-          <a href="/about-us">About Us</a>
+          <a href="/about-me">About me</a>
         </li>
         <li>
           <a href="https://qwik.builder.io/">Qwik</a>
         </li>
         <li>
-          <a href="https://twitter.com/QwikDev">Twitter</a>
+          <a href="https://github.com/echoLC">GitHub</a>
         </li>
         <li>
-          <a href="https://github.com/BuilderIO/qwik">GitHub</a>
-        </li>
-        <li>
-          <a href="https://qwik.builder.io/chat">Chat</a>
+          <a href="https://juejin.cn/user/3702810893618253">掘金</a>
         </li>
       </ul>
       <div>
-        <a href="https://www.builder.io/" target="_blank" class="builder">
-          Made with ♡ by Builder.io
+        <a href="https://qwik.builder.io/" target="_blank" class="builder">
+          Power by Qwik ♡
         </a>
       </div>
     </footer>
-  );
-});
+  )
+})
