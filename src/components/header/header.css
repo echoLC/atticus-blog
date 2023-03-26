@@ -2,14 +2,14 @@ header {
   position: sticky;
   top: 0;
   z-index: 11;
-  display: grid;
-  grid-template-columns: minmax(130px, auto) 1fr;
-  gap: 30px;
+  display: flex;
+  align-items: center;
   height: 80px;
   width: 100%;
   padding: 10px;
   background-color: white;
   overflow: hidden;
+  justify-content: space-between;
 }
 
 header a.logo {

@@ -1,23 +1,23 @@
 import { component$, Slot, useStyles$ } from '@builder.io/qwik'
 import type { DocumentHead } from '@builder.io/qwik-city'
 import Menu from '~/components/menu/menu'
-import styles from './docs.css?inline'
+import styles from './blog.css?inline'
 
 export default component$(() => {
   useStyles$(styles)
 
   return (
-    <div class="docs">
+    <div class="blogs">
       <Menu />
-      <article>
+      <main>
         <Slot />
-      </article>
+      </main>
     </div>
   )
 })
 
 export const head: DocumentHead = ({ head }) => {
   return {
-    title: `${head.title} - Documentation`
+    title: `${head.title} - Blogs`
   }
 }

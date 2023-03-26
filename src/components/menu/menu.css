@@ -1,6 +1,8 @@
 .menu {
-  background: #eee;
+  background: #fff;
   padding: 20px 10px;
+  width: 240px;
+  height: 100%;
 }
 
 .menu h5 {
